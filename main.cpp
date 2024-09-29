@@ -97,8 +97,9 @@ int f_iter(int n, string p) {
      */
 
     vector<int> f1(n + 1), fn(n + 1);
-    f1[0] = fn[0] = f1[1] = fn[1] = 1;
-    f1[2] = fn[2] = 2;
+    f1[0] = fn[0] = p[0] == '0' ? 0 : 1;
+    f1[1] = fn[1] = p[1] == '0' ? 0 : 1;
+    f1[2] = fn[2] = p[2] == '0' ? 0 : fn[1] + fn[0];
 
     for (int i = 3; i <= n; i++) {
         f1[i] = p[i] == '0' ? 0 : fn[i - 1] + fn[i - 2];
